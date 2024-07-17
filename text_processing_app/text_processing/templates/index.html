@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="input_text">Input Text:</label>
+    <input type="text" name="input_text" id="input_text">
+    <button type="submit">Process</button>
+</form>
 
-</body>
 </html>
