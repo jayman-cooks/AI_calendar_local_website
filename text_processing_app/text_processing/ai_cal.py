@@ -1,12 +1,83 @@
-import datetime
+import json
+from openai import OpenAI
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from phi.assistant import Assistant
-from phi.llm.ollama import Hermes
 import os
+with open("openai_tok.json", "r") as token:
+    api_tok = json.load(token)["Token"]
+
+tools = [
+  {
+    "type": "function",
+    "function": {
+      "name": "get_current_events",
+      "description": "Gets the calendar events for the specified day",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "integer",
+            "description": "The day of the event",
+          },
+          "month": {
+                "type": "integer",
+                "description": "The month of the event",
+          },
+          "year": {
+                "type": "integer",
+                "description": "The year of the event",
+          },
+    #"required": ["day", "month", "year"]
+        }
+      }
+    }
+  },
+{
+    "type": "function",
+    "function": {
+      "name": "create_event",
+      "description": "Create an event in the calendar",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "integer",
+            "description": "The day of the event",
+          },
+          "month": {
+                "type": "integer",
+                "description": "The month of the event",
+          },
+          "year": {
+                "type": "integer",
+                "description": "The year of the event",
+          },
+          "title": {
+                "type": "string",
+                "description": "The title of the event",
+          },
+          "description": {
+                "type": "string",
+                "description": "The description of the event",
+          },
+          "hour": {
+                "type": "integer",
+                "description": "The hour of the event in 24 hour time",
+          },
+          "minute": {
+                "type": "integer",
+                "description": "The year of the event",
+          },
+    #"required": ["day", "month", "year"]
+        }
+      }
+    }
+  }
+]
+
 
 # refresh token.json if scopes get changed
 SCOPES = ["https://www.googleapis.com/auth/calendar.events"]
@@ -31,14 +102,9 @@ if not creds or not creds.valid:
     with open("token.json", "w") as token:
         token.write(creds.to_json())
 
+
+
 def find_gcal_events_day(day:int, month: int, year: int):
-    """
-    Finds Gcal events of user
-    :param day: the day of the event
-    :param month: the month of the event
-    :param year: the year of the event
-    :return: a string of all events the LLM can process
-    """
 
     try:
         service = build("calendar", "v3", credentials=creds)
@@ -72,7 +138,7 @@ def find_gcal_events_day(day:int, month: int, year: int):
         print(f"An error occurred: {error}")
 
 
-def make_gcal_event(day:int, month: int, year: int, title: str, description: str, hour: int, minute: int):
+def make_gcal_event(day: int, month: int, year: int, title: str, description: str, hour: int, minute: int):
     if os.path.exists("token.json"):
         creds = Credentials.from_authorized_user_file("token.json", SCOPES)
     # If there are no (valid) credentials available, let the user log in.
@@ -86,7 +152,7 @@ def make_gcal_event(day:int, month: int, year: int, title: str, description: str
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open("token.json", "w") as token:
-          token.write(creds.to_json())
+            token.write(creds.to_json())
 
     try:
         service = build("calendar", "v3", credentials=creds)
@@ -105,26 +171,52 @@ def make_gcal_event(day:int, month: int, year: int, title: str, description: str
 
         event = service.events().insert(calendarId='primary', body=event).execute()
         print('Event created: %s' % (event.get('htmlLink')))
-        return 'Event created: %s' % (event.get('htmlLink'))
+        return f"created an event, {title} on {month}, {day}, {year}, with a description {description} at {hour}:{minute}"
 
 
     except HttpError as error:
         print(f"An error occurred: {error}")
-        return f"An error occurred: {error}"
 
 
-def run_assistant(prompt):
-    assistant = Assistant(
-        tools=[find_gcal_events_day, make_gcal_event],
-        show_tool_calls=False,
-        llm=Hermes(model="adrienbrault/nous-hermes2pro:Q8_0"),
-        description="You are a secretary assistant who provides helpful and concise information about the user's calendar. Use find_gcal_events_day to find events for one day, and make_gcal_event to make a calendar event.")
-    # show me whats happening on 1, 4, 2025
-    # Runs the LLM with the prompt from the user
-    response = assistant.run(prompt, stream=False)
-    return response
-response = run_assistant("show me whats happening on April 1 2025")
-print("Below is the response:")
-print(response)
+url = "https://jamsapi.hackclub.dev/openai"
 
+client = OpenAI(
+    # This is the default and can be omitted
+    api_key=api_tok, base_url=url,
+)
+def run_assistant(input: str):
 
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": input,
+            }
+        ],
+        model="gpt-3.5-turbo",
+        tools=tools,
+        tool_choice="auto"
+    )
+    print(chat_completion.choices[0].message.tool_calls[0].function.arguments)
+    func_resp = chat_completion.choices[0].message.tool_calls[0].function
+    json_rsp = json.loads(func_resp.arguments)
+    if func_resp.name == "get_current_events":
+        gcal_resp = find_gcal_events_day(json_rsp["day"], json_rsp["month"], json_rsp["year"])
+    elif func_resp.name == "create_event":
+        gcal_resp = make_gcal_event(json_rsp["day"], json_rsp["month"], json_rsp["year"], json_rsp["title"], json_rsp["description"], json_rsp["hour"], json_rsp["minute"])
+    else:
+        gcal_resp = "There was an error. Try rephrasing"
+    print(gcal_resp)
+
+    chat_completion2 = client.chat.completions.create(
+        messages=[
+            {
+                "role": "system",
+                "content": f"You are a calendar assistant. Rephrase this information for the user: {gcal_resp}",
+            }
+        ],
+        model="gpt-3.5-turbo",
+    )
+    print(chat_completion2.choices[0].message.content)
+    return chat_completion2.choices[0].message.content
+print(run_assistant("Show me whats happening on the day April 1 2025"))

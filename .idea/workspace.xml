@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3191a489-a0f3-4eb5-a2d9-c75cb741d781" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing/ai_cal.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing/ai_cal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing_app/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing_app/text_processing_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing_app/text_processing_app/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="3191a489-a0f3-4eb5-a2d9-c75cb741d781" name="Changes" comment="Web server mostly works, but Hermes often messes up." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,16 +21,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jayman-cooks"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jayman-cooks&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/jayman-cooks/AI_calendar_local_website.git",
-    "accountId": "7c86eb39-8fd5-41af-93d0-551a0b1dd81f"
+    "accountId": "49fc5ee6-77eb-49c9-89c4-1e16508f3cf5"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -83,6 +72,19 @@
       <option name="presentableId" value="Default" />
       <updated>1719980893567</updated>
     </task>
+    <task id="LOCAL-00001" summary="Web server mostly works, but Hermes often messes up.">
+      <option name="closed" value="true" />
+      <created>1721240507274</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721240507274</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Web server mostly works, but Hermes often messes up." />
+    <option name="LAST_COMMIT_MESSAGE" value="Web server mostly works, but Hermes often messes up." />
   </component>
 </project>
