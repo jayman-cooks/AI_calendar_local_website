@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "_base.html" %}
+
+{% block content %}
+      <h1 class="text-3xl text-green-800">
+          AI calendar helper
+    </h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="input_text">Input Text:</label>
+    <input type="text" name="input_text" id="input_text">
+    <button type="submit">Process</button>
+</form>
+
+</html>
+{% endblock content %}
