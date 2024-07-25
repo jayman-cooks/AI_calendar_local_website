@@ -3,15 +3,16 @@
 {% extends "_base.html" %}
 
 {% block content %}
-      <h1 class="text-3xl text-green-800">
+      <h1 class="text-center text-2xl text-slate-400">
           AI calendar helper
     </h1>
-
-<form action="" method="post">
+<div> </div>
+<br>
+<form action="" method="post" class="text-center">
     {% csrf_token %}
-    <label for="input_text">Input Text:</label>
-    <input type="text" name="input_text" id="input_text">
-    <button type="submit">Process</button>
+    <label for="input_text" class="text-center text-slate-400">Input Text:</label>
+    <input type="text" name="input_text" id="input_text" class="text-center text-zinc-950">
+    <button type="submit" class="text-center text-neutral-900 bg-stone-200 shadow-xl">Process</button>
 </form>
 
 </html>

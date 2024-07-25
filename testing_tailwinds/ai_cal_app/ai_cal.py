@@ -219,4 +219,4 @@ def run_assistant(input: str):
     )
     print(chat_completion2.choices[0].message.content)
     return chat_completion2.choices[0].message.content
-print(run_assistant("Show me whats happening on the day April 1 2025"))
+#print(run_assistant("Show me whats happening on the day April 1 2025"))

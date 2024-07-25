@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<h1>Result:</h1>
-<p>{{ processed_text }}</p>
+{% extends "_base.html" %}
+
+{% block content %}
+<h1 class="text-2xl text-center text-slate-400">Result:</h1>
+<br>
+<p class="text-center text-slate-400">{{ processed_text }}</p>
 </html>
+{% endblock content %}
