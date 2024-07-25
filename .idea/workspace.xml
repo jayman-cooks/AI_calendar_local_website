@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa62e0a8-c821-4807-97fc-cd7eeef7272d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.0758bd478ded.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.1219b69d1acd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.1e9ae23a0aaa.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.330ae28e7da3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.4396a38f68f3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.530901242549.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.5baf53042883.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.6dd9349c1b8d.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.7ecaf84ea960.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.b2ab010964ad.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.c55997de7cf7.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.ccc048664386.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_tailwinds/static/CACHE/css/output.dfeca901cdc0.css" afterDir="false" />
+    <list default="true" id="aa62e0a8-c821-4807-97fc-cd7eeef7272d" name="Changes" comment="Styled pages using tailwinds. I think the new colors make the pages look much better.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/ai_cal.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/ai_cal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/templates/_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/templates/_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/templates/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/ai_cal_app/templates/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_tailwinds/static/src/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/static/src/output.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_tailwinds/templates/_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/templates/_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_tailwinds/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/testing_tailwinds/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "jayman-cooks"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jayman-cooks&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/jayman-cooks/AI_calendar_local_website.git",
-    "accountId": "49fc5ee6-77eb-49c9-89c4-1e16508f3cf5"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jayman-cooks/AI_calendar_local_website.git&quot;,
+    &quot;accountId&quot;: &quot;49fc5ee6-77eb-49c9-89c4-1e16508f3cf5&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -65,6 +46,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.ai_cal.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "tailwind"
   }
@@ -85,6 +67,19 @@
       <option name="presentableId" value="Default" />
       <updated>1721760058734</updated>
     </task>
+    <task id="LOCAL-00001" summary="Styled pages using tailwinds. I think the new colors make the pages look much better.">
+      <option name="closed" value="true" />
+      <created>1721891337446</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721891337446</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Styled pages using tailwinds. I think the new colors make the pages look much better." />
+    <option name="LAST_COMMIT_MESSAGE" value="Styled pages using tailwinds. I think the new colors make the pages look much better." />
   </component>
 </project>

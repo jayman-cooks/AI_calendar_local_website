@@ -4,3 +4,7 @@
 /testing_tailwinds/openai_tok.json
 /testing_tailwinds/credentials.json
 /testing_tailwinds/token.json
+/DJ_server_calendar/django_secret.json
+/DJ_server_calendar/credentials.json
+/DJ_server_calendar/token.json
+/DJ_server_calendar/openai_tok.json

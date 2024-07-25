@@ -197,8 +197,11 @@ def run_assistant(input: str):
         tools=tools,
         tool_choice="auto"
     )
-    print(chat_completion.choices[0].message.tool_calls[0].function.arguments)
-    func_resp = chat_completion.choices[0].message.tool_calls[0].function
+    #print(chat_completion.choices[0].message.tool_calls[0].function.arguments)
+    try:
+        func_resp = chat_completion.choices[0].message.tool_calls[0].function
+    except:
+        return "There was an error processing your request. Please try rephrasing (error: no tool call)"
     json_rsp = json.loads(func_resp.arguments)
     if func_resp.name == "get_current_events":
         gcal_resp = find_gcal_events_day(json_rsp["day"], json_rsp["month"], json_rsp["year"])
@@ -206,6 +209,7 @@ def run_assistant(input: str):
         gcal_resp = make_gcal_event(json_rsp["day"], json_rsp["month"], json_rsp["year"], json_rsp["title"], json_rsp["description"], json_rsp["hour"], json_rsp["minute"])
     else:
         gcal_resp = "There was an error. Try rephrasing"
+        return "there was an error with processing your request. Please try rephrasing (error: not known tool call name)"
     print(gcal_resp)
 
     chat_completion2 = client.chat.completions.create(
